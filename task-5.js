@@ -23,23 +23,22 @@ console.log(img);
 // Найти на странице элемент mark, добавить в конец содержимого текст “green” и на элемент установить класс green
 let mark = document.querySelector("mark");
 mark.setAttribute("class", "green");
-mark.insertAdjacentText("beforeend", "green");
+mark.insertAdjacentText("beforeend", " " + "green");
 console.log(mark);
 
 // Отсортировать li внутри списка в обратном порядке (по тексту внутри)
 let allLi = document.querySelector("ul");
 let nodeList = allLi.childNodes;
-let body = document.querySelector("body");
-
-for (var i = 0; i < nodeList.length; ++i) {
-  body.insertAdjacentElement("beforeend", nodeList[i]);
-}
-// let newArr = Array.from(allLi);
-// let reversedArr = newArr.reverse();
-// allLi.forEach((el) => {
-// });
-// // console.log(allLi);
-// console.log(reversedArr);
-// //закончить
 
 console.log(allLi);
+// let nodeArr = Array.from(nodeList).reverse();
+// console.log(nodeArr);
+let li = document.querySelectorAll("li");
+li.forEach((el) => {
+  el.classList.add(el.textContent);
+  let elClass = document.getElementsByClassName(el.className);
+  let cloneEl = el.cloneNode(true);
+  elClass.item([0]).remove();
+  allLi.prepend(cloneEl);
+  console.log(cloneEl);
+});
